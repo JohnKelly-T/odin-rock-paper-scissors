@@ -11,3 +11,16 @@ function getComputerChoice() {
     }
 }
 
+function getHumanChoice() {
+    let choice = prompt("Please enter your choice.")
+
+    // convert to lowercase
+    choice = choice.toLowerCase();
+
+    if (choice === "rock" || choice === "paper" || choice === "scissors") {
+        return choice;
+    } else {
+        alert("Invalid option");
+        return "Invalid option";
+    }
+}
