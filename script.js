@@ -12,7 +12,7 @@ function getComputerChoice() {
 }
 
 function getHumanChoice() {
-    let choice = prompt("Please enter your choice.")
+    let choice = prompt("Rock, Paper, Scissors!")
 
     if (choice === null) {
         return "cancelled";
