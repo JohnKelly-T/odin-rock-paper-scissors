@@ -14,6 +14,9 @@ function getComputerChoice() {
 function getHumanChoice() {
     let choice = prompt("Please enter your choice.")
 
+    if (choice === null) {
+        return "cancelled";
+    }
     // convert to lowercase
     choice = choice.toLowerCase();
 
@@ -30,6 +33,11 @@ function playRound(computerChoice, humanChoice) {
     if (humanChoice === "Invalid option") {
         console.log("Invalid option inputted");
         return "invalid";
+    }
+
+    if (humanChoice === "cancelled") {
+        console.log("Player canceled");
+        return "cancelled";
     }
     
     let outcome;
@@ -65,7 +73,7 @@ function playGame(rounds) {
     for (let i = 0; i < rounds; i++) {
         result = playRound(getComputerChoice(), getHumanChoice());
 
-        if (result === "invalid") {
+        if (result === "invalid" || result === "cancelled") {
             // reset round
             i--;
             continue;
