@@ -1,6 +1,3 @@
-let humanScore = 0;
-let computerScore = 0;
-
 function getComputerChoice() {
     let choice = Math.floor(Math.random() * 3);
 
@@ -32,7 +29,7 @@ function playRound(computerChoice, humanChoice) {
 
     if (humanChoice === "Invalid option") {
         console.log("Invalid option inputted");
-        return;
+        return "invalid";
     }
     
     let outcome;
@@ -53,15 +50,46 @@ function playRound(computerChoice, humanChoice) {
         console.log(`It's a tie! Both chose ${humanChoice}`)
     } else if (outcome === "win") {
         console.log(`You win! ${humanChoice} beats ${computerChoice}`);
-        humanScore++;
     } else {
         console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
-        computerScore++;
+    }
+
+    return outcome;
+}
+
+function playGame(rounds) {
+    let humanScore = 0;
+    let computerScore = 0;
+    let result;
+
+    for (let i = 0; i < rounds; i++) {
+        result = playRound(getComputerChoice(), getHumanChoice());
+
+        if (result === "invalid") {
+            // reset round
+            i--;
+            continue;
+        } else if (result === "win") {
+            humanScore++;
+        } else if (result === "lose") {
+            computerScore++;
+        }
+
+        // print current score
+        console.log(`Current score:\ncpu:${computerScore} player:${humanScore}`)
+    }
+
+    // evaluate final winner
+    if (humanScore > computerScore) {
+        console.log("*** Congrats! You are the overall winner! ***");
+    } else if (computerScore > humanScore) {
+        console.log("*** Cpu wins! Better Luck next time! ***");
+    } else if (computerScore === humanScore) {
+        console.log("*** Nobody wins the whole game! It's a tie! ***");
     }
 }
 
-const humanSelection = getHumanChoice();
-const computerSelection = getComputerChoice();
 
-playRound(humanSelection, computerSelection);
+
+playGame(5);
 
