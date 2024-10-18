@@ -28,4 +28,40 @@ function getHumanChoice() {
     }
 }
 
+function playRound(computerChoice, humanChoice) {
+
+    if (humanChoice === "Invalid option") {
+        console.log("Invalid option inputted");
+        return;
+    }
+    
+    let outcome;
+    
+    if (computerChoice === humanChoice) {
+        outcome = "tie";
+    } else if (computerChoice === "rock" && humanChoice === "scissors"
+        || computerChoice === "paper" && humanChoice === "rock"
+        || computerChoice === "scissors" && humanChoice === "paper"
+    ) {
+        outcome = "lose";
+    }
+    else {
+        outcome = "win";
+    }
+
+    if (outcome === "tie") {
+        console.log(`It's a tie! Both chose ${humanChoice}`)
+    } else if (outcome === "win") {
+        console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+        humanScore++;
+    } else {
+        console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+        computerScore++;
+    }
+}
+
+const humanSelection = getHumanChoice();
+const computerSelection = getComputerChoice();
+
+playRound(humanSelection, computerSelection);
 
