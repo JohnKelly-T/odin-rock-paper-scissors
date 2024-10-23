@@ -99,5 +99,36 @@ function playGame(rounds) {
 
 
 
-playGame(5);
+let cpuScore = 0;
+let humanScore = 0;
+
+let choices = document.querySelector(".choices-container");
+
+choices.addEventListener('click', (e) => {
+    let target = e.target;
+
+    let validChoices = ['rock', 'paper', 'scissors'];
+    let humanChoice;
+
+    if (validChoices.includes(target.id)) {
+        humanChoice = e.target.id;
+    } else {
+        return;
+    }  
+
+    let cpuChoice = getComputerChoice();
+    let result;
+
+    result = playRound(cpuChoice, humanChoice);
+
+    let results = document.querySelector(".results");
+
+    if (result === 'win') {
+        results.textContent = `Congrats! ${humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)} beats ${cpuChoice.charAt(0).toUpperCase() + cpuChoice.slice(1)}`;
+        humanScore++;
+    } else {
+        results.textContent = `Too bad, ${cpuChoice.charAt(0).toUpperCase() + cpuChoice.slice(1)} beats ${humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)}`;
+        cpuScore++;
+    }
+})
 
