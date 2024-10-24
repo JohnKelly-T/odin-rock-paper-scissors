@@ -7,15 +7,21 @@
     gap: 48px;
 }
 
+.scoreboard {
+    display: flex;
+    width: 200px;
+    justify-content: space-between;
+}
+
 .results {
     font-size: 24px;
 }
 
 .choices-container {
     display: flex;
-    justify-content: center;
+    width: 200px;
+    justify-content: space-between;
     align-items: center;
-    gap: 16px;
 }
 
 .choice-button {
