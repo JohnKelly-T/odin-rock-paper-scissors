@@ -19,9 +19,9 @@
 
 .choices-container {
     display: flex;
-    width: 200px;
-    justify-content: space-between;
+    justify-content: center;
     align-items: center;
+    gap: 24px;
 }
 
 .choice-button {
