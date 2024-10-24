@@ -27,3 +27,8 @@
 .choice-button {
     padding: 5px;
 }
+
+#play-again-button {
+    padding: 5px;
+    display: none;
+}
