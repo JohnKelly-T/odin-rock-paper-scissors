@@ -11,16 +11,41 @@
 
     <body>
         <div class="game-container">
-            <div class="result-text">Rock Paper Scissors!</div>
-            <div class="scoreboard">
-                <div>Player: <span class="player-score">0</span></div>
-                <div>Computer: <span class="computer-score">0</span></div>
+            <div class="computer-container">
+                <div class="computer-status">
+                    Computer:
+                    <div id="computer-healthbar"></div>
+                </div>
+
+                <div class="computer-choice">
+                    <img id="computer-choice-img">
+                    <div class="computer-choice-shadow"></div>
+                </div>
             </div>
-            <div class="choices-container">
-                <button class="choice-button" id="rock">Rock</button>
-                <button class="choice-button" id="paper">Paper</button>
-                <button class="choice-button" id="scissors">Scissors</button>
-                <button id="play-again-button">Play Again</button>
+
+            <div class="result-text">Rock Paper Scissors!</div>
+
+            <div class="player-container">
+                <div class="player-choice">
+                    <img id="player-choice-img">
+                    <div class="player-choice-shadow"></div>
+                </div>
+
+                <div class="player-menu-container">
+                    <div class="player-status">
+                        Player:
+                        <div id="player-healthbar"></div>
+                    </div>
+
+                    <div class="choices-text">Choose your move!</div>
+
+                    <div class="choices-container">
+                        <button class="choice-button" id="rock">Rock</button>
+                        <button class="choice-button" id="paper">Paper</button>
+                        <button class="choice-button" id="scissors">Scissors</button>
+                        <button id="play-again-button">Play Again</button>
+                    </div>
+                </div>
             </div>
         </div>
     </body>

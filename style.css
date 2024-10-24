@@ -1,3 +1,10 @@
+body {
+    padding: 0;
+    margin: 0;
+    color: white;
+    font-family: sans-serif;
+}
+
 .game-container {
     height: 100vh;
     display: flex;
@@ -5,16 +12,62 @@
     justify-content: center;
     align-items: center;
     gap: 48px;
+    background-color: #1E1B26;
 }
 
-.scoreboard {
+.computer-container, .player-container {
     display: flex;
-    width: 200px;
+    width: 70vw;
+    align-items: flex-start;
     justify-content: space-between;
+}
+
+.computer-status, .player-status {
+    display: flex;
+    width: 300px;
+    gap: 24px;
+    border-radius: 10px;
+    padding: 10px 15px;
+    background-color: #373145;
+}
+
+.computer-choice, .player-choice {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+}
+
+#computer-choice-img, #player-choice-img {
+    width: 150px;
+    height: 150px;
+}
+
+.computer-choice-shadow, .player-choice-shadow {
+    width: 150px;
+    height: 10px;
+    border: 1px solid red;
+}
+
+#computer-healthbar, #player-healthbar {
+    width: 200px;
+    height: 20px;
+    border-radius: 5px;
+    background-color: #40FF39;
+}
+
+#player-healthbar {
+    margin-left: 25px;
 }
 
 .result-text {
     font-size: 24px;
+}
+
+.player-menu-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 12px;
 }
 
 .choices-container {
@@ -25,7 +78,12 @@
 }
 
 .choice-button {
-    padding: 5px;
+    border-radius: 10px;
+    border: none;
+    width: 100px;
+    height: 100px;
+    color: white;
+    background-color: #2C2C33;
 }
 
 #play-again-button {
