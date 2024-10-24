@@ -11,25 +11,14 @@ function getComputerChoice() {
     }
 }
 
-function playRound(computerChoice, humanChoice) {
-
-    if (humanChoice === "Invalid option") {
-        console.log("Invalid option inputted");
-        return "invalid";
-    }
-
-    if (humanChoice === "cancelled") {
-        console.log("Player canceled");
-        return "cancelled";
-    }
-    
+function playRound(computerChoice, playerChoice) {
     let outcome;
     
-    if (computerChoice === humanChoice) {
+    if (computerChoice === playerChoice) {
         outcome = "tie";
-    } else if (computerChoice === "rock" && humanChoice === "scissors"
-        || computerChoice === "paper" && humanChoice === "rock"
-        || computerChoice === "scissors" && humanChoice === "paper"
+    } else if (computerChoice === "rock" && playerChoice === "scissors"
+        || computerChoice === "paper" && playerChoice === "rock"
+        || computerChoice === "scissors" && playerChoice === "paper"
     ) {
         outcome = "lose";
     }
@@ -38,24 +27,24 @@ function playRound(computerChoice, humanChoice) {
     }
 
     if (outcome === "tie") {
-        console.log(`It's a tie! Both chose ${humanChoice}`)
+        console.log(`It's a tie! Both chose ${playerChoice}`)
     } else if (outcome === "win") {
-        console.log(`You win! ${humanChoice} beats ${computerChoice}`);
+        console.log(`You win! ${playerChoice} beats ${computerChoice}`);
     } else {
-        console.log(`You lose! ${computerChoice} beats ${humanChoice}`);
+        console.log(`You lose! ${computerChoice} beats ${playerChoice}`);
     }
 
     return outcome;
 }
 
 
-let cpuScore = 0;
-let humanScore = 0;
+let computerScore = 0;
+let playerScore = 0;
 
 let choices = document.querySelector(".choices-container");
-let results = document.querySelector(".results");
-let humanScoreboard = document.querySelector(".human-score");
-let cpuScoreboard = document.querySelector(".computer-score");
+let results = document.querySelector(".result-text");
+let playerScoreboard = document.querySelector(".player-score");
+let computerScoreboard = document.querySelector(".computer-score");
 
 let rockButton = document.querySelector("#rock");
 let paperButton = document.querySelector("#paper");
@@ -68,34 +57,34 @@ choices.addEventListener('click', (e) => {
     let target = e.target;
 
     let validChoices = ['rock', 'paper', 'scissors'];
-    let humanChoice;
+    let playerChoice;
 
     if (validChoices.includes(target.id)) {
-        humanChoice = e.target.id;
+        playerChoice = e.target.id;
     } else {
         return;
     }  
 
-    let cpuChoice = getComputerChoice();
-    let result = playRound(cpuChoice, humanChoice);
+    let computerChoice = getComputerChoice();
+    let outcome = playRound(computerChoice, playerChoice);
 
-    if (result === 'win') {
-        results.textContent = `You Win! ${humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)} beats ${cpuChoice.charAt(0).toUpperCase() + cpuChoice.slice(1)}.`;
-        humanScoreboard.textContent = ++humanScore;
-    } else if (result === 'lose') {
-        results.textContent = `You lose! ${cpuChoice.charAt(0).toUpperCase() + cpuChoice.slice(1)} beats ${humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)}.`;
-        cpuScoreboard.textContent = ++cpuScore;
+    if (outcome === 'win') {
+        results.textContent = `You Win! ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)} beats ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}.`;
+        playerScoreboard.textContent = ++playerScore;
+    } else if (outcome === 'lose') {
+        results.textContent = `You lose! ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} beats ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}.`;
+        computerScoreboard.textContent = ++computerScore;
     } else {
-        results.textContent = `It's a tie! You both chose ${humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)}.`
+        results.textContent = `It's a tie! You both chose ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}.`
     }
 
-    if (cpuScore === 5 || humanScore === 5) {
+    if (computerScore === 5 || playerScore === 5) {
         rockButton.style.display = "none";
         paperButton.style.display = "none";
         scissorsButton.style.display = "none";
         playAgainButton.style.display = "initial";
 
-        results.textContent = (humanScore === 5) ? "Congrats! You won the game!": "You lost the game! Better luck next time!";
+        results.textContent = (playerScore === 5) ? "Congrats! You won the game!": "You lost the game! Better luck next time!";
     }
 })
 
@@ -105,11 +94,11 @@ playAgainButton.addEventListener('click', () => {
     scissorsButton.style.display = "initial";
     playAgainButton.style.display = "none";
 
-    cpuScore = 0;
-    humanScore = 0;
+    computerScore = 0;
+    playerScore = 0;
 
     results.textContent = "Rock Paper Scissors!";
-    humanScoreboard.textContent = humanScore;
-    cpuScoreboard.textContent = cpuScore;
+    playerScoreboard.textContent = playerScore;
+    computerScoreboard.textContent = computerScore;
 })
 
