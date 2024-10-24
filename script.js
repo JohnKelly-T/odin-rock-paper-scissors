@@ -11,23 +11,6 @@ function getComputerChoice() {
     }
 }
 
-function getHumanChoice() {
-    let choice = prompt("Rock, Paper, Scissors!")
-
-    if (choice === null) {
-        return "cancelled";
-    }
-    // convert to lowercase
-    choice = choice.toLowerCase();
-
-    if (choice === "rock" || choice === "paper" || choice === "scissors") {
-        return choice;
-    } else {
-        alert("Invalid option");
-        return "Invalid option";
-    }
-}
-
 function playRound(computerChoice, humanChoice) {
 
     if (humanChoice === "Invalid option") {
@@ -65,44 +48,21 @@ function playRound(computerChoice, humanChoice) {
     return outcome;
 }
 
-function playGame(rounds) {
-    let humanScore = 0;
-    let computerScore = 0;
-    let result;
-
-    for (let i = 0; i < rounds; i++) {
-        result = playRound(getComputerChoice(), getHumanChoice());
-
-        if (result === "invalid" || result === "cancelled") {
-            // reset round
-            i--;
-            continue;
-        } else if (result === "win") {
-            humanScore++;
-        } else if (result === "lose") {
-            computerScore++;
-        }
-
-        // print current score
-        console.log(`Current score:\ncpu:${computerScore} player:${humanScore}`)
-    }
-
-    // evaluate final winner
-    if (humanScore > computerScore) {
-        console.log("*** Congrats! You are the overall winner! ***");
-    } else if (computerScore > humanScore) {
-        console.log("*** Cpu wins! Better Luck next time! ***");
-    } else if (computerScore === humanScore) {
-        console.log("*** Nobody wins the whole game! It's a tie! ***");
-    }
-}
-
-
 
 let cpuScore = 0;
 let humanScore = 0;
 
 let choices = document.querySelector(".choices-container");
+let results = document.querySelector(".results");
+let humanScoreboard = document.querySelector(".human-score");
+let cpuScoreboard = document.querySelector(".computer-score");
+
+let rockButton = document.querySelector("#rock");
+let paperButton = document.querySelector("#paper");
+let scissorsButton = document.querySelector("#scissors");
+let playAgainButton = document.querySelector("#play-again-button");
+
+let event = new CustomEvent("gameEnd");
 
 choices.addEventListener('click', (e) => {
     let target = e.target;
@@ -117,20 +77,39 @@ choices.addEventListener('click', (e) => {
     }  
 
     let cpuChoice = getComputerChoice();
-    let result;
-
-    result = playRound(cpuChoice, humanChoice);
-
-    let results = document.querySelector(".results");
+    let result = playRound(cpuChoice, humanChoice);
 
     if (result === 'win') {
         results.textContent = `You Win! ${humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)} beats ${cpuChoice.charAt(0).toUpperCase() + cpuChoice.slice(1)}.`;
-        humanScore++;
+        humanScoreboard.textContent = ++humanScore;
     } else if (result === 'lose') {
         results.textContent = `You lose! ${cpuChoice.charAt(0).toUpperCase() + cpuChoice.slice(1)} beats ${humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)}.`;
-        cpuScore++;
+        cpuScoreboard.textContent = ++cpuScore;
     } else {
         results.textContent = `It's a tie! You both chose ${humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)}.`
     }
+
+    if (cpuScore === 5 || humanScore === 5) {
+        rockButton.style.display = "none";
+        paperButton.style.display = "none";
+        scissorsButton.style.display = "none";
+        playAgainButton.style.display = "initial";
+
+        results.textContent = (humanScore === 5) ? "Congrats! You won the game!": "You lost the game! Better luck next time!";
+    }
+})
+
+playAgainButton.addEventListener('click', () => {
+    rockButton.style.display = "initial";
+    paperButton.style.display = "initial";
+    scissorsButton.style.display = "initial";
+    playAgainButton.style.display = "none";
+
+    cpuScore = 0;
+    humanScore = 0;
+
+    results.textContent = "Rock Paper Scissors!";
+    humanScoreboard.textContent = humanScore;
+    cpuScoreboard.textContent = cpuScore;
 })
 
