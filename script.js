@@ -124,11 +124,13 @@ choices.addEventListener('click', (e) => {
     let results = document.querySelector(".results");
 
     if (result === 'win') {
-        results.textContent = `Congrats! ${humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)} beats ${cpuChoice.charAt(0).toUpperCase() + cpuChoice.slice(1)}`;
+        results.textContent = `You Win! ${humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)} beats ${cpuChoice.charAt(0).toUpperCase() + cpuChoice.slice(1)}.`;
         humanScore++;
-    } else {
-        results.textContent = `Too bad, ${cpuChoice.charAt(0).toUpperCase() + cpuChoice.slice(1)} beats ${humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)}`;
+    } else if (result === 'lose') {
+        results.textContent = `You lose! ${cpuChoice.charAt(0).toUpperCase() + cpuChoice.slice(1)} beats ${humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)}.`;
         cpuScore++;
+    } else {
+        results.textContent = `It's a tie! You both chose ${humanChoice.charAt(0).toUpperCase() + humanChoice.slice(1)}.`
     }
 })
 
