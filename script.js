@@ -70,10 +70,10 @@ choices.addEventListener('click', (e) => {
 
     if (outcome === 'win') {
         results.textContent = `You Win! ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)} beats ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)}.`;
-        playerScoreboard.textContent = ++playerScore;
+        playerScore++;
     } else if (outcome === 'lose') {
         results.textContent = `You lose! ${computerChoice.charAt(0).toUpperCase() + computerChoice.slice(1)} beats ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}.`;
-        computerScoreboard.textContent = ++computerScore;
+        computerScore++;
     } else {
         results.textContent = `It's a tie! You both chose ${playerChoice.charAt(0).toUpperCase() + playerChoice.slice(1)}.`
     }
@@ -98,7 +98,5 @@ playAgainButton.addEventListener('click', () => {
     playerScore = 0;
 
     results.textContent = "Rock Paper Scissors!";
-    playerScoreboard.textContent = playerScore;
-    computerScoreboard.textContent = computerScore;
 })
 
