@@ -83,7 +83,48 @@ body {
     width: 100px;
     height: 100px;
     color: white;
-    background-color: #2C2C33;
+    background-color: #2e283d;
+    background-position: center;
+    background-size: 50px;
+    background-repeat: no-repeat;
+    box-shadow: 0 -5px 2px 4px rgba(0, 0, 0, .25) inset, 0 4px 5px 1px rgba(0, 0, 0, .5);
+}
+
+#rock {
+    background-image: url(./img/rock-front.png);
+    
+}
+
+#rock:hover {
+    box-shadow: 0 -5px 2px 4px rgba(0, 0, 0, .25) inset, 0 4px 5px 1px rgba(255, 50, 136, .5);
+}
+
+#rock:active {
+    box-shadow: 0 1px 2px 4px rgba(0, 0, 0, .25) inset, 0 4px 5px 1px rgba(255, 50, 136, .75);
+}
+
+#paper {
+    background-image: url(./img/paper-front.png);
+}
+
+#paper:hover {
+    box-shadow: 0 -5px 2px 4px rgba(0, 0, 0, .25) inset, 0 4px 5px 1px rgba(50, 251, 255, 0.5);
+}
+
+#paper:active {
+    box-shadow: 0 1px 2px 4px rgba(0, 0, 0, .25) inset, 0 4px 5px 1px rgba(50, 251, 255, 0.75);
+}
+
+#scissors {
+    background-image: url(./img/scissors-front.png);
+}
+
+#scissors:hover {
+    box-shadow: 0 -5px 2px 4px rgba(0, 0, 0, .25) inset, 0 4px 5px 1px rgba(255, 220, 50, 0.5);
+}
+
+#scissors:active {
+    box-shadow: 0 1px 2px 4px rgba(0, 0, 0, .25) inset, 0 4px 5px 1px rgba(255, 220, 50, 0.75);
 }
 
 #play-again-button {
