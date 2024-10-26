@@ -22,6 +22,10 @@ body {
     justify-content: space-between;
 }
 
+.computer-container {
+    margin-top: -25px;
+}
+
 .computer-status, .player-status {
     display: flex;
     width: 300px;
@@ -31,21 +35,38 @@ body {
     background-color: #373145;
 }
 
+.computer-status {
+    margin-top: 50px;
+}
+
 .computer-choice, .player-choice {
     display: flex;
     flex-direction: column;
+    align-items: center;
     gap: 5px;
 }
 
 #computer-choice-img, #player-choice-img {
-    width: 150px;
-    height: 150px;
+    width: 250px;
+    height: 250px;
+}
+
+#computer-choice-img {
+    rotate: -120deg;
+    filter: saturate(0);
+}
+
+#player-choice-img {
+    rotate: 60deg;
+    filter: saturate(0);
 }
 
 .computer-choice-shadow, .player-choice-shadow {
-    width: 150px;
-    height: 10px;
-    border: 1px solid red;
+    background-color: rgba(0, 0, 0, .25);
+    border-radius: 50%;
+    filter: blur(3px);
+    width: 200px;
+    height: 20px;
 }
 
 #computer-healthbar, #player-healthbar {
