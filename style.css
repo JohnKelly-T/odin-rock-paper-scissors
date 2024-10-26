@@ -1,8 +1,11 @@
+@import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
+
 body {
     padding: 0;
     margin: 0;
     color: white;
     font-family: sans-serif;
+    font-family: "Press Start 2P", system-ui;
 }
 
 .game-container {
@@ -17,22 +20,19 @@ body {
 
 .computer-container, .player-container {
     display: flex;
-    width: 70vw;
+    width: 65vw;
     align-items: flex-start;
     justify-content: space-between;
 }
 
-.computer-container {
-    margin-top: -25px;
-}
-
 .computer-status, .player-status {
     display: flex;
-    width: 300px;
+    align-items: center;
     gap: 24px;
     border-radius: 10px;
     padding: 10px 15px;
     background-color: #373145;
+    font-size: 12px;
 }
 
 .computer-status {
@@ -47,13 +47,17 @@ body {
 }
 
 #computer-choice-img, #player-choice-img {
-    width: 250px;
-    height: 250px;
+    width: 200px;
+    height: 200px;
 }
 
 #computer-choice-img {
     rotate: -120deg;
     filter: saturate(0);
+}
+
+.result-text {
+    margin-bottom: 30px;
 }
 
 #player-choice-img {
@@ -69,15 +73,21 @@ body {
     height: 20px;
 }
 
-#computer-healthbar, #player-healthbar {
+#computer-healthbar-container, #player-healthbar-container {
+    background-color: rgba(0, 0, 0, .25);
     width: 200px;
+    border-radius: 5px;
+}
+
+#player-healthbar-container {
+    margin-left: 25px;
+}
+
+#computer-healthbar, #player-healthbar {
+    width: 100%;
     height: 20px;
     border-radius: 5px;
     background-color: #40FF39;
-}
-
-#player-healthbar {
-    margin-left: 25px;
 }
 
 .result-text {
@@ -88,7 +98,7 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
+    gap: 24px;
 }
 
 .choices-container {
