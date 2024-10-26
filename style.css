@@ -58,7 +58,10 @@ body {
 }
 
 .result-text {
+    width: 80vw;
+    font-size: 32px;
     margin-bottom: 30px;
+    text-align: center;
 }
 
 #player-choice-img {
@@ -91,10 +94,6 @@ body {
     background-color: #40FF39;
 }
 
-.result-text {
-    font-size: 24px;
-}
-
 .player-menu-container {
     display: flex;
     flex-direction: column;
@@ -123,6 +122,7 @@ body {
 }
 
 #play-again-button {
+    margin-top: 20px;
     position: relative;
     display: none;
     padding: 5px;
