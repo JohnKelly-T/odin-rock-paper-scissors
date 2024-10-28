@@ -195,3 +195,10 @@ body {
     box-shadow: 0 1px 2px 4px rgba(0, 0, 0, .25) inset, 0 4px 5px 1px rgba(255, 220, 50, 0.75);
 }
 
+.attribution {
+    font-size: 8px;
+}
+
+.attribution a {
+    color: rgb(255,50,136);
+}
