@@ -19,6 +19,7 @@ body {
 }
 
 .computer-container, .player-container {
+    background-color: red;
     display: flex;
     width: 65vw;
     align-items: flex-start;
@@ -28,6 +29,7 @@ body {
 
 .computer-status, .player-status {
     display: flex;
+    flex: auto;
     align-items: center;
     gap: 24px;
     border-radius: 10px;
@@ -41,6 +43,9 @@ body {
 }
 
 .computer-choice, .player-choice {
+    background-color: rgba(0, 128, 0, 0.312);
+    flex: 0 1 200px;
+    min-width: 0;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -48,8 +53,8 @@ body {
 }
 
 #computer-choice-img, #player-choice-img {
-    width: 200px;
-    height: 200px;
+    width: 100%;
+    height: auto;
 }
 
 #computer-choice-img {
@@ -73,7 +78,7 @@ body {
     background-color: rgba(0, 0, 0, .25);
     border-radius: 50%;
     filter: blur(3px);
-    width: 200px;
+    width: 100%;
     height: 20px;
 }
 
