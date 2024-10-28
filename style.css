@@ -1,5 +1,10 @@
 @import url('https://fonts.googleapis.com/css2?family=Press+Start+2P&family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap');
 
+
+* {
+    box-sizing: border-box;
+}
+
 body {
     padding: 0;
     margin: 0;
@@ -19,7 +24,6 @@ body {
 }
 
 .computer-container, .player-container {
-    background-color: red;
     display: flex;
     width: 65vw;
     align-items: flex-start;
@@ -29,7 +33,6 @@ body {
 
 .computer-status, .player-status {
     display: flex;
-    flex: auto;
     align-items: center;
     gap: 24px;
     border-radius: 10px;
@@ -39,11 +42,18 @@ body {
 }
 
 .computer-status {
+    flex: 0 1 400px;
+    flex-wrap: wrap;
     margin-top: 50px;
 }
 
+.player-status {
+    width: 100%;
+    flex-wrap: wrap;
+    gap: 45px;
+}
+
 .computer-choice, .player-choice {
-    background-color: rgba(0, 128, 0, 0.312);
     flex: 0 1 200px;
     min-width: 0;
     display: flex;
@@ -84,12 +94,15 @@ body {
 
 #computer-healthbar-container, #player-healthbar-container {
     background-color: rgba(0, 0, 0, .25);
-    width: 200px;
     border-radius: 5px;
 }
 
+#computer-healthbar-container {
+    flex: 200px;
+}
+
 #player-healthbar-container {
-    margin-left: 25px;
+    flex: 200px;
 }
 
 #computer-healthbar, #player-healthbar {
@@ -104,10 +117,12 @@ body {
     flex-direction: column;
     align-items: center;
     gap: 24px;
+    flex: 0 1 400px;
 }
 
 .choices-container {
     display: flex;
+    width: 100%;
     justify-content: center;
     align-items: center;
     gap: 24px;
@@ -116,21 +131,24 @@ body {
 .choice-button, #play-again-button{
     border-radius: 10px;
     border: none;
-    width: 100px;
-    height: 100px;
     color: white;
     background-color: #2e283d;
     background-position: center;
-    background-size: 50px;
+    background-size: 50%;
     background-repeat: no-repeat;
     box-shadow: 0 -5px 2px 4px rgba(0, 0, 0, .25) inset, 0 4px 5px 1px rgba(0, 0, 0, .5);
+}
+
+.choice-button {
+    width: 100%;
+    aspect-ratio: 1;
 }
 
 #play-again-button {
     margin-top: 20px;
     position: relative;
     display: none;
-    padding: 5px;
+    padding: 40px 20px;
     z-index: 10;
     width: 200px;
     font-family: "Press Start 2P";
