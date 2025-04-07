@@ -19,6 +19,11 @@ This project was created to demonstrate problem solving skills and basic JavaScr
 
 https://johnkelly-t.github.io/odin-rock-paper-scissors/
 
+## 🛠️ Technologies Used  
+- **HTML** – For structuring the game  
+- **CSS** – For styling and layout  
+- **JavaScript** – For rock paper scissors logic  
+
 ## 🧠 What I Learned
 
 - Writing reusable JavaScript functions
